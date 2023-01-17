@@ -7,14 +7,14 @@ class Solution {
     function similarPairs($words) {
         $newWords = [];
         foreach($words as $w){
-            $arr = str_split($w,1);
+            $arr = str_split($w);
             $unique = array_unique($arr);
             sort($unique,SORT_STRING);
             $uniqueWords = implode($unique);
             $newWords[] = $uniqueWords;
         }
-        $same = array_count_values($newWords);
-        if(max($same)===1){
+        $matchWord = array_count_values($newWords);
+        if(max($matchWord)===1){
             return 0;
         }
         $cnt = count($newWords);
