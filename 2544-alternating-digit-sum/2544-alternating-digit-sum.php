@@ -9,11 +9,7 @@ class Solution {
         $arr = str_split($n);
         
         for($i=0;$i<$len;$i++){
-            if($i % 2 === 0){
-                $total += $arr[$i];
-                continue;
-            }
-            $total -= $arr[$i];
+            $total = $i % 2 === 0 ? $total+$arr[$i] : $total-$arr[$i];
         }
         return $total;
     }
