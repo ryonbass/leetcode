@@ -11,11 +11,13 @@ class Solution {
         }
         $len1 = strlen($s1);
         $len2 = strlen($s2);
-        $s1_freq = array_count_values(str_split($s1));
+        $arr_s1 = str_split($s1);
+        $s1_freq = array_count_values($arr_s1);
         
         for($i=0;$i<$len2-$len1+1;$i++){
             $sub_word = substr($s2,$i,$len1);
-            $sub_freq = array_count_values(str_split($sub_word));
+            $sub_arr = str_split($sub_word);
+            $sub_freq = array_count_values($sub_arr);
             if($s1_freq == $sub_freq){
                 return true;
             }
