@@ -5,7 +5,6 @@ class Solution {
      * @return Integer[]
      */
     function separateDigits($nums) {
-        $imp = implode($nums);
-        return str_split($imp);
+        return str_split(implode($nums));
     }
 }
