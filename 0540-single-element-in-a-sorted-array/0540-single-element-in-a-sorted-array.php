@@ -6,7 +6,7 @@ class Solution {
      */
     function singleNonDuplicate($nums) {
         $arr = array_count_values($nums);
-        $ret = array_search(1,$arr);
-        return $ret;
+        $ans = array_keys($arr,1);
+        return $ans[0];
     }
 }
