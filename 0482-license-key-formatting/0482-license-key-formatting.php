@@ -14,6 +14,7 @@ class Solution {
         $topLen = strlen($dashDel) % $k;
         $topGroup = substr($dashDel,0,$topLen);
         $OtherGroup = substr($dashDel,$topLen);
+        
         while($add !== strlen($OtherGroup)){
             $ret .= "-".substr($OtherGroup,0+$add,$k);
             $add += $k;
