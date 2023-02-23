@@ -6,19 +6,21 @@ class Solution {
      * @return String
      */
     function licenseKeyFormatting($s, $k) {
-        $dashDel = (preg_replace("/[-]/","",$s));      
-        if(strlen($dashDel) === $k){
-            return strtoupper($dashDel);
+        $s  = strtoupper(str_replace('-', '', $s));
+        $s = str_split($s);
+        $ans = "";
+        $groupL = 0;
+        for($i = count($s); $i >= 0; $i--){
+            $ans = $s[$i] . $ans;
+            
+
+            if($groupL == $k && $i != 0){
+                $ans = "-" . $ans;
+                $groupL = 0;
+            }
+
+            $groupL += 1;
         }
-        $add = 0;
-        $topLen = strlen($dashDel) % $k;
-        $topGroup = substr($dashDel,0,$topLen);
-        $OtherGroup = substr($dashDel,$topLen);
-        while($add !== strlen($OtherGroup)){
-            $ret .= "-".substr($OtherGroup,0+$add,$k);
-            $add += $k;
-        }
-        $ans = strtoupper($topGroup.$ret);
-        return strpos($ans,"-")===0 ? substr($ans,1) : $ans;
+        return $ans;
     }
 }
