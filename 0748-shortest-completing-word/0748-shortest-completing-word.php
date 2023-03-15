@@ -8,20 +8,18 @@ class Solution {
     function shortestCompletingWord($licensePlate, $words) {
         $alphaOnly = strtolower(preg_replace("/[^a-zA-Z]/","",$licensePlate));
         $cnt = count($words);
-        $matchWord = "";
-        
+
         for($i=0;$i<$cnt;$i++){ 
             $word = $words[$i];
             if(strlen($word)<strlen($alphaOnly)){
                 continue;
             }
             for($j=0;$j<strlen($alphaOnly);$j++){
-                if(strpos($word,$alphaOnly[$j])!==false){
-                    $word = preg_replace("/{$alphaOnly[$j]}/","",$word,1);
-                }else{
+                if(strpos($word,$alphaOnly[$j])===false){
                     $word = null;
                     break;
                 }
+                $word = preg_replace("/{$alphaOnly[$j]}/","",$word,1);
             }
             if(!is_null($word)){
                 $matchWord = $words[$i];
