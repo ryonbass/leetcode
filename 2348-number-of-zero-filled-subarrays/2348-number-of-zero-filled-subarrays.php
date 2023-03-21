@@ -5,9 +5,6 @@ class Solution {
      * @return Integer
      */
     function zeroFilledSubarray($nums) {
-        if(!in_array(0,$nums)){
-            return 0;
-        }
         $cnt = count($nums);
         $subArrlen = 0;
         $sum = 0;
