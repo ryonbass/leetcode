@@ -8,6 +8,7 @@ class Solution {
     function replaceWords($dictionary, $sentence) {
         
         $sen = explode(" ",$sentence);
+        $cntsen = count($sen);
         $cntdic = count($dictionary);
         for($i=0;$i<$cntdic;$i++){
             $sen = preg_replace("/^".$dictionary[$i]."[a-z]*$/",$dictionary[$i],$sen);
